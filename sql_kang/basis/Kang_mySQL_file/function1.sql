@@ -49,4 +49,28 @@ SELECT last_name Last_name, job_id Job_id, CASE job_id
 	WHEN 'ST_CLERK' THEN '5'
 	ELSE '6'
 	END "level"
-from employees;
+from employees;#
+
+SELECT department_id, AVG(salary)
+from employees
+where department_id > 80
+GROUP BY department_id WITH ROLLUP
+HAVING AVG(salary) > 10000;
+
+#select from join on where GROUP BY HAVING ORDER BY limit 
+#from where GROUP BY having select 
+
+select manager_id, min(salary)
+from employees
+where manager_id is not NULL
+GROUP BY manager_id
+having MIN(salary) > 6000;
+
+SELECT department_name, location_id, COUNT(employee_id), AVG(salary) avg_sal #4
+FROM employees e #1
+RIGHT JOIN departments d #1
+ON e.`department_id` = d.`department_id` #1
+GROUP BY department_name,  location_id #2
+having COUNT(employee_id) > 2 #3
+ORDER BY avg_sal DESC; #5
+
