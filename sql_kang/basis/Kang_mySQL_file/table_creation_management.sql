@@ -6,7 +6,6 @@ create database if not EXISTS dbtest CHARACTER set 'utf8';
 #create table 
 use dbtest;
 
-/*
 create table my_employees(
 		id int(10),
 		first_name VARCHAR(10),
@@ -43,7 +42,6 @@ DELETE u, e
 from users u join my_employees e
 on u.userid = e.userid;
 
-*/
 
 
 SELECT * from my_employees;
@@ -54,18 +52,18 @@ TRUNCATE table my_employees;
 SELECT * from my_employees;
 desc my_employees;
 
-# create table employees as select * from my_employees;
-#rename table employee to employees;
+create table employees as select * from my_employees;
+rename table employee to employees;
 desc employees;
 
-#alter table employees modify first_name VARCHAR(20);
+alter table employees modify first_name VARCHAR(20);
 desc employees;
 
-#alter table employees add middle_name VARCHAR(20) after first_name;
-#alter table employees drop column middle_name;
+alter table employees add middle_name VARCHAR(20) after first_name;
+alter table employees drop column middle_name;
 
-#alter table employees change first_name f_name VARCHAR(20);
-#alter table employees add first_name VARCHAR(20) first;
+alter table employees change first_name f_name VARCHAR(20);
+alter table employees add first_name VARCHAR(20) first;
 desc employees;
 
 /*
